@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cacbe17b2a22cbf4fae48f6105951f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTime: 0
+  maxGameTime: 20
   pool: {fileID: 1174310810}
   player: {fileID: 1991151563}
 --- !u!4 &57717145
@@ -178,7 +180,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167403809}
-  - component: {fileID: 167403810}
   - component: {fileID: 167403811}
   m_Layer: 0
   m_Name: Spawner
@@ -218,19 +219,6 @@ Transform:
   m_Father: {fileID: 1991151560}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &167403810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167403808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3028bcb8a88b8c4b94d564b550fa297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnerPoint: []
 --- !u!114 &167403811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +248,15 @@ MonoBehaviour:
   - {fileID: 581048104}
   - {fileID: 2014277273}
   - {fileID: 2026490125}
+  spawnData:
+  - spriteType: 0
+    spawnTime: 0.7
+    health: 10
+    speed: 1.5
+  - spriteType: 1
+    spawnTime: 0.2
+    health: 15
+    speed: 2.4
 --- !u!1 &184740537
 GameObject:
   m_ObjectHideFlags: 0
@@ -13673,7 +13670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8949262944941004043, guid: ff00f7a522d0cd443a6dc038b685b543, type: 3}
-  - {fileID: 4307844768438393618, guid: 815088f1643b21f4c9b0c6fb7a21acd6, type: 3}
 --- !u!1 &1613829305
 GameObject:
   m_ObjectHideFlags: 0
@@ -18181,6 +18177,7 @@ GameObject:
   - component: {fileID: 1991151562}
   - component: {fileID: 1991151563}
   - component: {fileID: 1991151564}
+  - component: {fileID: 1991151565}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -18329,6 +18326,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1991151565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991151558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: b1f7405580ec9334cba230bbbeafd8bf, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2014277272
 GameObject:
   m_ObjectHideFlags: 0
