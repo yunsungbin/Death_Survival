@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float Speed;
     public Scanner scanner;
     public Hand[] hands;
+    public RuntimeAnimatorController[] AnimCon;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -23,14 +24,16 @@ public class Player : MonoBehaviour
         hands = GetComponentsInChildren<Hand>(true);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        Speed *= Character.Speed;
+        anim.runtimeAnimatorController = AnimCon[GameManager.instance.playerId];
     }
 
     void FixedUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
         Vector2 nextVec = inputVec * Speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
     }
@@ -42,11 +45,32 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
         anim.SetFloat("Speed", inputVec.magnitude);
 
         if (inputVec.x != 0)
         {
             spriter.flipX = inputVec.x < 0;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isLive)
+            return;
+
+        GameManager.instance.health -= Time.deltaTime * 10;
+
+        if (GameManager.instance.health < 0)
+        {
+            for(int index = 2; index < transform.childCount; index++)
+            {
+                transform.GetChild(index).gameObject.SetActive(false);
+            }
+
+            anim.SetTrigger("Dead");
+            GameManager.instance.GameOver();
         }
     }
 }
