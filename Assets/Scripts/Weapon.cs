@@ -39,11 +39,6 @@ public class Weapon : MonoBehaviour
                 }
                 break;
         }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            LevelUp(10, 1);
-        }
     }
 
     public void LevelUp(float damage, int count)
@@ -117,7 +112,7 @@ public class Weapon : MonoBehaviour
             bullet.Rotate(rotVec);
             bullet.Translate(bullet.up * 1.5f, Space.World);
 
-            bullet.GetComponent<Bullet>().Init(damage, -1, Vector3.zero); // -1은 무한으로 관통
+            bullet.GetComponent<Bullet>().Init(damage, -100, Vector3.zero); // -100은 무한으로 관통
         }
     }
 
@@ -135,5 +130,7 @@ public class Weapon : MonoBehaviour
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
 
         bullet.GetComponent<Bullet>().Init(damage, count, dir);
+
+        AudioManager.instance.PlayerSfx(AudioManager.Sfx.Range);
     }
 }
