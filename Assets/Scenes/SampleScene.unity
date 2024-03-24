@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10000000
-  per: -1
+  per: -100
 --- !u!1 &144713141
 GameObject:
   m_ObjectHideFlags: 0
