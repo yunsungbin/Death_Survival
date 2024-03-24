@@ -6,6 +6,7 @@ public class Gear : MonoBehaviour
 {
     public ItemData.ItemType type;
     public float rate;
+    public static float plusdamage;
 
     public void Init(ItemData data)
     {
@@ -34,6 +35,9 @@ public class Gear : MonoBehaviour
             case ItemData.ItemType.Shoe:
                 SpeedUp();
                 break;
+            case ItemData.ItemType.Bullet:
+                GunDamageUp();
+                break;
         }
     }
 
@@ -61,5 +65,22 @@ public class Gear : MonoBehaviour
     {
         float speed = 3 * Character.Speed;
         GameManager.instance.player.Speed = speed + speed * rate;
+    }
+
+    void GunDamageUp()
+    {
+        Weapon[] weapons = transform.parent.GetComponentsInChildren<Weapon>();
+        
+
+        foreach (Weapon weapon in weapons)
+        {
+            switch (weapon.id)
+            {
+                case 1:
+                    float damage = 3 * Character.Damage;
+                    plusdamage = damage + (damage * rate);
+                    break;
+            }
+        }
     }
 }

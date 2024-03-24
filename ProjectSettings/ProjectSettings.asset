@@ -814,11 +814,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 
+  cloudProjectId: 976b30ac-8b3c-4414-bf4f-1a5e2d6fc012
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Death_Survival
+  organizationId: dbstmdqls0211
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
