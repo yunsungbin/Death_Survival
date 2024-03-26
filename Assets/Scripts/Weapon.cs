@@ -112,7 +112,7 @@ public class Weapon : MonoBehaviour
             bullet.Rotate(rotVec);
             bullet.Translate(bullet.up * 1.5f, Space.World);
 
-            bullet.GetComponent<Bullet>().Init(damage, -100, Vector3.zero); // -100은 무한으로 관통
+            bullet.GetComponent<Bullet>().Init(damage + Gear.powerplus, -100, Vector3.zero); // -100은 무한으로 관통
         }
     }
 

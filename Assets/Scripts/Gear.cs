@@ -7,6 +7,7 @@ public class Gear : MonoBehaviour
     public ItemData.ItemType type;
     public float rate;
     public static float plusdamage;
+    public static float powerplus;
 
     public void Init(ItemData data)
     {
@@ -37,6 +38,9 @@ public class Gear : MonoBehaviour
                 break;
             case ItemData.ItemType.Bullet:
                 GunDamageUp();
+                break;
+            case ItemData.ItemType.Power:
+                PowerUp();
                 break;
         }
     }
@@ -79,6 +83,23 @@ public class Gear : MonoBehaviour
                 case 1:
                     float damage = 3 * Character.Damage;
                     plusdamage = damage * rate;
+                    break;
+            }
+        }
+    }
+
+    void PowerUp()
+    {
+        Weapon[] weapons = transform.parent.GetComponentsInChildren<Weapon>();
+
+
+        foreach (Weapon weapon in weapons)
+        {
+            switch (weapon.id)
+            {
+                case 0:
+                    float damage = 3 * Character.Damage;
+                    powerplus = damage * rate;
                     break;
             }
         }
