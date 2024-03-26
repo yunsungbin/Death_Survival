@@ -78,7 +78,7 @@ public class Gear : MonoBehaviour
             {
                 case 1:
                     float damage = 3 * Character.Damage;
-                    plusdamage = damage + (damage * rate);
+                    plusdamage = damage * rate;
                     break;
             }
         }
